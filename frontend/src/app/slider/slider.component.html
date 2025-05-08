@@ -1,0 +1,22 @@
+<div class="slider-container">
+  <button class="nav-button left" (click)="prevSlide()">&#10094;</button>
+
+  <div class="slider-wrapper" [style.transform]="getTransformStyle()">
+    <div *ngFor="let item of sliderItems; let i = index"
+         class="slider-item"
+         [class.focused]="isFocused(i)">
+      <img [src]="item.imageUrl" alt="Slider image">
+
+      <div class="slider-title">
+        {{ item.title }}
+      </div>
+    </div>
+  </div>
+
+  <button class="nav-button right" (click)="nextSlide()">&#10095;</button>
+</div>
+
+<div class="slider-caption">
+  
+  <div class="slider-subtitle">{{ sliderItems[currentIndex].content }}</div>
+</div>
